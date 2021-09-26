@@ -1,0 +1,33 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+server: 
+  port: 8001
+spring:
+  profiles: dev #开发环境
+  application:
+    name: USER-PROVIDER
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-7001.com:7001/eureka  #告诉服务提供者要把服务注册到哪儿 #单机环境
+  instance:
+    prefer-ip-address: true #显示客户端真实ip
+---
+server: 
+  port: 8847
+spring:
+  profiles: test #测试环境
+  application:
+    name: USER-PROVIDER-TEST
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-7001.com:7001/eureka  #告诉服务提供者要把服务注册到哪儿 #单机环境
+  instance:
+    prefer-ip-address: true #显示客户端真实ip
+————————————————
+版权声明：本文为CSDN博主「Abdullahi_kanye」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/Abdullahi_kanye/article/details/89919942
